@@ -13,6 +13,6 @@ public class ComunicacaoServiceTests
         service.EnviarMensagem(usuarioId, mensagem);
 
         var output = sw.ToString();
-        Assert.Contains($"[ENVIO] Mensagem para Usuário {usuarioId}: {mensagem}", output);
+        Assert.Contains($"[ENVIO] Mensagem para Usuario {usuarioId}: {mensagem}", output);
     }
 }
