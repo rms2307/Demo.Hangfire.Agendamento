@@ -2,6 +2,6 @@
 {
     public void EnviarMensagem(int usuarioId, string mensagem)
     {
-        Console.WriteLine($"[ENVIO] Mensagem para Usuário {usuarioId}: {mensagem} - {DateTime.Now}");
+        Console.WriteLine($"[ENVIO] Mensagem para Usuario {usuarioId}: {mensagem} - {DateTime.Now}");
     }
 }
