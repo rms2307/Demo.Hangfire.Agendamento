@@ -1,0 +1,6 @@
+@Demo.Hangfire.Agendamento_HostAddress = http://localhost:5258
+
+GET {{Demo.Hangfire.Agendamento_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
