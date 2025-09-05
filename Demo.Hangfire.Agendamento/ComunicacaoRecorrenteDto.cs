@@ -1,4 +1,4 @@
-﻿public class ComunicacaoDto
+﻿public class ComunicacaoRecorrenteDto
 {
     public int UsuarioId { get; set; }
     public string Mensagem { get; set; } = string.Empty;
