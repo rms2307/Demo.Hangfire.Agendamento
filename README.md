@@ -22,9 +22,9 @@ Este projeto demonstra como utilizar o [Hangfire](https://www.hangfire.io/) em u
 
 ## 📦 Endpoints disponíveis
 
-### `POST /agendar-comunicacao`
+### `POST /agendamentos-recorrentes`
 
-Agenda uma mensagem para ser enviada em uma data e hora futuras.
+Agenda uma mensagem recorrente com base em configuração CRON.
 
 #### Corpo da requisição (JSON):
 
@@ -38,4 +38,46 @@ Agenda uma mensagem para ser enviada em uma data e hora futuras.
         "minuto": 0,
         "intervaloMinutos": 0
     }
+}
+```
+
+### `POST /agendamentos-unicos`
+
+Agenda uma mensagem única para ser enviada em data e hora específicas.
+
+#### Corpo da requisição (JSON):
+
+```json
+{
+    "usuarioId": 123,
+    "mensagem": "Mensagem única",
+    "dataAgendamento": "2024-12-25T10:30:00"
+}
+```
+
+### `GET /jobs`
+
+Lista todas as tarefas agendadas (únicas) e recorrentes.
+
+#### Resposta (JSON):
+
+```json
+{
+    "scheduled": [
+        {
+            "jobId": "123",
+            "method": "EnviarMensagem",
+            "args": [123, "Mensagem única"],
+            "enqueueAt": "2024-12-25T10:30:00Z"
+        }
+    ],
+    "recurring": [
+        {
+            "id": "890-Teste 7!",
+            "method": "EnviarMensagem",
+            "cron": "0 10 * * *",
+            "lastExecution": "2024-12-20T10:00:00Z",
+            "nextExecution": "2024-12-21T10:00:00Z"
+        }
+    ]
 }
